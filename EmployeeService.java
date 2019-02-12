@@ -8,4 +8,6 @@ import java.util.List;
  */
 public interface EmployeeService {
     List<BottomlineEmployee> getListOfBottomlieneEmployee(GloballogicEmployee...globallogicEmployee);
+
+
 }

@@ -3,8 +3,7 @@ import classes.BottonlineEmlployee.BottomlineProject.*;
 import classes.GloballogicEmployee;
 import enums.EmployeeEngineeringRole;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by aivashchenko on 2/8/2019.
@@ -53,6 +52,27 @@ public class BusinessLogicClass {
         }
 
         return lsmDeveloper;
+    }
+
+
+    public String getEmployeeProjectNameAndTeam(GloballogicEmployee...globallogicEmployee){
+        List<BottomlineEmployee> employees = employeeService.getListOfBottomlieneEmployee(globallogicEmployee);
+        String projectnameAndteam = null;
+        for (BottomlineEmployee employee:employees){
+            if(employee instanceof PartnerSelectEmploee){
+                projectnameAndteam= ((PartnerSelectEmploee) employee).getProjectName() + " "+ ((PartnerSelectEmploee) employee).getScramTeam();
+            }
+            if(employee instanceof PaymodeEmploee){
+                projectnameAndteam= ((PaymodeEmploee) employee).getProjectName() + " "+ ((PaymodeEmploee) employee).getScramTeam();
+            }
+            if(employee instanceof LegalxEmploee){
+                projectnameAndteam= ((LegalxEmploee) employee).getProjectName() + " "+ ((LegalxEmploee) employee).getScramTeam();
+            }
+            if(employee instanceof LexEmployee){
+                projectnameAndteam= ((LexEmployee) employee).getProjectName() + " "+ ((LexEmployee) employee).getScramTeam();
+            }
+        }
+return projectnameAndteam;
     }
 
 }
